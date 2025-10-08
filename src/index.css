@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kunj-java: #1CB6BF;
+  --kunj-eb: #178C93;
+}
+
+.btn-primary {
+  background: var(--kunj-eb);
+  color: white;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+  transform: translateY(-1px);
+}
+
+.link {
+  color: var(--kunj-eb);
+  transition: all 0.2s ease;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.brand-grad {
+  background: linear-gradient(90deg, var(--kunj-eb), var(--kunj-java));
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  .btn-primary {
+    border-radius: 0.5rem;
+  }
+  
+  /* Improve touch targets */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
