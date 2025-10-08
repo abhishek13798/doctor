@@ -28,7 +28,7 @@ const Hero: React.FC = () => (
         </div>
         <div className="relative aspect-[4/3] bg-[var(--kunj-light)] rounded-2xl lg:rounded-3xl ring-1 ring-slate-200 shadow-md overflow-hidden">
           <img 
-            src="/src/photos/founder.png" 
+            src="/founder.png" 
             alt="Ms. Rimjhim, Clinical Psychologist" 
             className="w-full h-full object-cover"
           />

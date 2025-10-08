@@ -13,7 +13,7 @@ const About: React.FC = () => (
           </div>
           <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 flex-shrink-0">
             <img 
-              src="/src/photos/founder.png" 
+              src="/founder.png" 
               alt="Ms. Rimjhim, Clinical Psychologist" 
               className="w-full h-full object-cover rounded-2xl shadow-lg"
             />
