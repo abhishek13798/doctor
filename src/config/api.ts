@@ -1,7 +1,7 @@
 // API Configuration
 export const API_CONFIG = {
-  OPENAI_API_KEY: 'vck_0XPYtaQB6piuiHRrA0h6r9YXBiYoKdZ1PII06H4MAqeSmxVjhh1wiCoW',
-  OPENAI_API_URL: 'https://api.openai.com/v1/chat/completions'
+  // Use environment variable for security
+  OPENAI_API_KEY: import.meta.env.VITE_OPENAI_API_KEY || '',
 };
 
 // For production, you should use environment variables:

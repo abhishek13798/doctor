@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, Send, Bot, User, Loader2, AlertCircle } from 'lucide-react';
+import OpenAI from 'openai';
 import { API_CONFIG } from '../config/api';
 
 interface Message {
@@ -38,18 +39,19 @@ const AIHealthAssistant: React.FC = () => {
     setError('');
 
     try {
-      const response = await fetch(API_CONFIG.OPENAI_API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_CONFIG.OPENAI_API_KEY}`
-        },
-        body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          messages: [
-            {
-              role: 'system',
-              content: `You are a helpful AI health assistant for KunjCare, a psychotherapy practice led by Ms. Rimjhim, a Licensed Clinical Psychologist (RCI). 
+      // Initialize OpenAI client with your real API key
+      const openai = new OpenAI({
+        apiKey: API_CONFIG.OPENAI_API_KEY,
+        dangerouslyAllowBrowser: true
+      });
+
+      // Create chat completion with OpenAI
+      const completion = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content: `You are a helpful AI health assistant for KunjCare, a psychotherapy practice led by Ms. Rimjhim, a Licensed Clinical Psychologist (RCI). 
 
 IMPORTANT GUIDELINES:
 - Provide general health and mental health information only
@@ -65,33 +67,43 @@ Contact information to mention when appropriate:
 - Email: kunjcare@gmail.com
 - Phone: +91-9103034279
 - WhatsApp: +91-9103034279`
-            },
-            {
-              role: 'user',
-              content: inputText
-            }
-          ],
-          max_tokens: 300,
-          temperature: 0.7
-        })
+          },
+          {
+            role: "user",
+            content: inputText
+          }
+        ],
+        max_tokens: 300,
+        temperature: 0.7
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to get response from AI');
-      }
-
-      const data = await response.json();
+      const aiResponse = completion.choices[0]?.message?.content || 'Sorry, I could not generate a response.';
+      
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: data.choices[0].message.content,
+        text: aiResponse,
         isUser: false,
         timestamp: new Date()
       };
 
       setMessages(prev => [...prev, aiMessage]);
     } catch (err) {
-      setError('Sorry, I encountered an error. Please try again or contact Ms. Rimjhim directly.');
-      console.error('AI API Error:', err);
+      console.error('OpenAI API Error:', err);
+      
+      // Handle specific error types
+      if (err instanceof Error) {
+        if (err.message.includes('401') || err.message.includes('Incorrect API key')) {
+          setError('Invalid API Key: Please check your OpenAI API key configuration.');
+        } else if (err.message.includes('429')) {
+          setError('Rate limit exceeded. Please try again in a moment.');
+        } else if (err.message.includes('network') || err.message.includes('fetch')) {
+          setError('Network error. Please check your internet connection and try again.');
+        } else {
+          setError(`Sorry, I encountered an error: ${err.message}. Please try again or contact Ms. Rimjhim directly.`);
+        }
+      } else {
+        setError('Sorry, I encountered an unexpected error. Please try again or contact Ms. Rimjhim directly.');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -114,7 +126,7 @@ Contact information to mention when appropriate:
             </span>
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Ask me general health and mental health questions. I'm here to provide helpful information, 
+            Ask me general health and mental health questions. I'm powered by AI to provide helpful information and guidance, 
             but remember to consult with Ms. Rimjhim for professional advice.
           </p>
         </div>
@@ -128,7 +140,7 @@ Contact information to mention when appropriate:
               </div>
               <div>
                 <h3 className="font-semibold">KunjCare AI Assistant</h3>
-                <p className="text-sm opacity-90">Powered by AI • General health information only</p>
+                <p className="text-sm opacity-90">Powered by OpenAI • General health information only</p>
               </div>
             </div>
           </div>
