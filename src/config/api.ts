@@ -4,6 +4,11 @@ export const API_CONFIG = {
   OPENAI_API_KEY: import.meta.env.VITE_OPENAI_API_KEY || '',
 };
 
+// Validate API key
+export const validateApiKey = (): boolean => {
+  return !!API_CONFIG.OPENAI_API_KEY && API_CONFIG.OPENAI_API_KEY.length > 0;
+};
+
 // For production, you should use environment variables:
 // export const API_CONFIG = {
 //   OPENAI_API_KEY: import.meta.env.VITE_OPENAI_API_KEY,

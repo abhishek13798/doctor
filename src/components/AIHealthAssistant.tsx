@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MessageCircle, Send, Bot, User, Loader2, AlertCircle } from 'lucide-react';
 import OpenAI from 'openai';
-import { API_CONFIG } from '../config/api';
+import { API_CONFIG, validateApiKey } from '../config/api';
 
 interface Message {
   id: string;
@@ -39,6 +39,11 @@ const AIHealthAssistant: React.FC = () => {
     setError('');
 
     try {
+      // Check if API key is available
+      if (!validateApiKey()) {
+        throw new Error('OpenAI API key is not configured. Please set VITE_OPENAI_API_KEY environment variable.');
+      }
+
       // Initialize OpenAI client with your real API key
       const openai = new OpenAI({
         apiKey: API_CONFIG.OPENAI_API_KEY,

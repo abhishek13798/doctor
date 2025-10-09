@@ -2,6 +2,7 @@
   "name": "kunjcare-app",
   "version": "1.0.0",
   "description": "KunjCare Psychotherapy Web App",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
