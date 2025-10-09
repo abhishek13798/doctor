@@ -21,7 +21,7 @@ const NavBar: React.FC = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6 text-[15px]">
-          {["Home", "About", "Services", "Resources", "Testimonials + FAQ"].map((l) => (
+          {["Home", "About", "Services", "AI Assistant", "Contact"].map((l) => (
             <a key={l} href={`#${l.toLowerCase().replace(/\s+/g, '')}`} className="text-slate-700 hover:text-slate-900">{l}</a>
           ))}
         </nav>
@@ -49,7 +49,7 @@ const NavBar: React.FC = () => {
       {isMenuOpen && (
         <div className="lg:hidden bg-white border-t border-slate-100">
           <nav className="px-4 py-4 space-y-3">
-            {["Home", "About", "Services", "Resources", "Testimonials + FAQ"].map((l) => (
+            {["Home", "About", "Services", "AI Assistant", "Contact"].map((l) => (
               <a 
                 key={l} 
                 href={`#${l.toLowerCase().replace(/\s+/g, '')}`} 
