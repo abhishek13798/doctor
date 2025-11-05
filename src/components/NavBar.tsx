@@ -1,78 +1,142 @@
 import React, { useState } from 'react';
 import { Mail, MessageCircle, Menu, X } from 'lucide-react';
+import { Button } from './ui/button';
+import { cn } from '../lib/utils';
 
 const NavBar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState('Home');
+
+  const navItems = ["Home", "About", "Services", "AI Assistant", "Contact"];
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur bg-white/80 border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-3">
-          <img 
-            src="/logo.png" 
-            alt="KunjCare Logo" 
-            className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
-          />
-          <div>
-            <p className="text-base sm:text-lg font-semibold">KunjCare</p>
-            <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-slate-500">Psychotherapy</p>
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <a 
+            href="#home" 
+            className="flex items-center gap-3 group transition-transform duration-200 hover:scale-105"
+            onClick={() => setActiveLink('Home')}
+          >
+            <div className="relative">
+              <img 
+                src="/logo.png" 
+                alt="KunjCare Logo" 
+                className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-all duration-300 group-hover:rotate-3"
+              />
+            </div>
+            <div className="flex flex-col">
+              <p className="text-base sm:text-lg font-bold bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] bg-clip-text text-transparent">
+                KunjCare
+              </p>
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium">
+                Psychotherapy
+              </p>
+            </div>
+          </a>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
+                onClick={() => setActiveLink(item)}
+                className={cn(
+                  "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                  activeLink === item
+                    ? "text-[var(--kunj-eb)] bg-[var(--kunj-light)]"
+                    : "text-slate-700 hover:text-[var(--kunj-eb)] hover:bg-slate-50"
+                )}
+              >
+                {item}
+                {activeLink === item && (
+                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-[var(--kunj-eb)] rounded-full" />
+                )}
+              </a>
+            ))}
+          </nav>
+
+          {/* Desktop Contact Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            <Button
+              asChild
+              variant="default"
+              size="sm"
+              className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] hover:shadow-lg"
+            >
+              <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-4 w-4" />
+                WhatsApp
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+            >
+              <a href="mailto:kunjcare@gmail.com">
+                <Mail className="mr-2 h-4 w-4" />
+                Email
+              </a>
+            </Button>
           </div>
-        </a>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6 text-[15px]">
-          {["Home", "About", "Services", "AI Assistant", "Contact"].map((l) => (
-            <a key={l} href={`#${l.toLowerCase().replace(/\s+/g, '')}`} className="text-slate-700 hover:text-slate-900">{l}</a>
-          ))}
-        </nav>
 
-        {/* Desktop Contact Buttons */}
-        <div className="hidden md:flex items-center gap-2">
-          <a href="https://wa.me/919103034279" target="_blank" className="btn-primary px-3 py-2 flex items-center gap-2 text-sm">
-            <MessageCircle size={16}/> WhatsApp
-          </a>
-          <a href="mailto:kunjcare@gmail.com" className="border rounded-xl px-3 py-2 text-sm flex items-center gap-2 border-[var(--kunj-eb)] text-[var(--kunj-eb)]">
-            <Mail size={16}/> Email
-          </a>
+          {/* Mobile Menu Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button 
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden p-2 text-slate-700 hover:text-slate-900"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-100">
-          <nav className="px-4 py-4 space-y-3">
-            {["Home", "About", "Services", "AI Assistant", "Contact"].map((l) => (
-              <a 
-                key={l} 
-                href={`#${l.toLowerCase().replace(/\s+/g, '')}`} 
-                className="block text-slate-700 hover:text-slate-900 py-2"
-                onClick={() => setIsMenuOpen(false)}
+        <div className="lg:hidden border-t bg-white animate-in slide-in-from-top duration-200">
+          <nav className="px-4 py-4 space-y-1">
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
+                onClick={() => {
+                  setActiveLink(item);
+                  setIsMenuOpen(false);
+                }}
+                className={cn(
+                  "block px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                  activeLink === item
+                    ? "text-[var(--kunj-eb)] bg-[var(--kunj-light)]"
+                    : "text-slate-700 hover:bg-slate-50"
+                )}
               >
-                {l}
+                {item}
               </a>
             ))}
-            <div className="pt-4 border-t border-slate-100 space-y-3">
-              <a 
-                href="https://wa.me/919103034279" 
-                target="_blank" 
-                className="btn-primary w-full px-4 py-3 flex items-center justify-center gap-2 text-sm"
+            <div className="pt-4 mt-4 border-t space-y-2">
+              <Button
+                asChild
+                variant="default"
+                className="w-full bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)]"
               >
-                <MessageCircle size={16}/> WhatsApp
-              </a>
-              <a 
-                href="mailto:kunjcare@gmail.com" 
-                className="border w-full px-4 py-3 flex items-center justify-center gap-2 text-sm border-[var(--kunj-eb)] text-[var(--kunj-eb)] rounded-xl"
+                <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  WhatsApp
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="w-full"
               >
-                <Mail size={16}/> Email
-              </a>
+                <a href="mailto:kunjcare@gmail.com">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Email
+                </a>
+              </Button>
             </div>
           </nav>
         </div>

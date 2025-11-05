@@ -23,8 +23,12 @@ const App: React.FC = () => {
       <Services />
       <AIHealthAssistant />
       <ReachOut />
-      <footer className="py-8 sm:py-10 text-center text-xs sm:text-sm text-slate-500 px-4">
-        © {new Date().getFullYear()} KunjCare • Ms. Rimjhim, Clinical Psychologist (RCI)
+      <footer className="py-8 sm:py-10 text-center border-t bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} <span className="font-semibold text-foreground">KunjCare</span> • Ms. Rimjhim, Clinical Psychologist (RCI)
+          </p>
+        </div>
       </footer>
       <FloatingAIButton />
     </Shell>

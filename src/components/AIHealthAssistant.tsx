@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { MessageCircle, Send, Bot, User, Loader2, AlertCircle } from 'lucide-react';
+import { MessageCircle, Send, Bot, User, Loader2, AlertCircle, Sparkles } from 'lucide-react';
 import OpenAI from 'openai';
 import { API_CONFIG, validateApiKey } from '../config/api';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { Button } from './ui/button';
+import { cn } from '../lib/utils';
 
 interface Message {
   id: string;
@@ -122,33 +125,37 @@ Contact information to mention when appropriate:
   };
 
   return (
-    <section id="ai-assistant" className="bg-gradient-to-br from-[var(--kunj-light)] to-white py-12 sm:py-16">
+    <section id="ai-assistant" className="relative py-16 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
-            <span className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] bg-clip-text text-transparent">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-4">
+            <Sparkles className="h-4 w-4" />
+            AI-Powered Assistant
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-primary via-[var(--kunj-java)] to-primary bg-clip-text text-transparent">
               AI Health Assistant
             </span>
           </h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Ask me general health and mental health questions. I'm powered by AI to provide helpful information and guidance, 
             but remember to consult with Ms. Rimjhim for professional advice.
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-large border border-slate-200 overflow-hidden">
+        <Card className="shadow-2xl border-2 overflow-hidden">
           {/* Chat Header */}
-          <div className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] p-4 text-white">
+          <CardHeader className="bg-gradient-to-r from-primary to-[var(--kunj-java)] text-primary-foreground">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                <Bot size={20} />
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <Bot className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="font-semibold">KunjCare AI Assistant</h3>
-                <p className="text-sm opacity-90">Powered by OpenAI • General health information only</p>
+                <CardTitle className="text-white">KunjCare AI Assistant</CardTitle>
+                <CardDescription className="text-white/90">Powered by OpenAI • General health information only</CardDescription>
               </div>
             </div>
-          </div>
+          </CardHeader>
 
           {/* Messages */}
           <div className="h-96 overflow-y-auto p-4 space-y-4">
@@ -163,16 +170,18 @@ Contact information to mention when appropriate:
                   </div>
                 )}
                 <div
-                  className={`max-w-[80%] p-3 rounded-2xl ${
+                  className={cn(
+                    "max-w-[80%] p-4 rounded-xl shadow-sm",
                     message.isUser
-                      ? 'bg-[var(--kunj-eb)] text-white'
-                      : 'bg-slate-100 text-slate-800'
-                  }`}
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-muted-foreground'
+                  )}
                 >
                   <p className="text-sm leading-relaxed">{message.text}</p>
-                  <p className={`text-xs mt-2 ${
-                    message.isUser ? 'text-white/70' : 'text-slate-500'
-                  }`}>
+                  <p className={cn(
+                    "text-xs mt-2",
+                    message.isUser ? 'text-primary-foreground/70' : 'text-muted-foreground'
+                  )}>
                     {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
@@ -211,7 +220,7 @@ Contact information to mention when appropriate:
           </div>
 
           {/* Input */}
-          <div className="border-t border-slate-200 p-4">
+          <CardContent className="border-t p-6">
             <div className="flex gap-3">
               <input
                 type="text"
@@ -219,44 +228,55 @@ Contact information to mention when appropriate:
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder="Ask me about mental health, therapy, or general wellness..."
-                className="flex-1 px-4 py-3 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--kunj-eb)] focus:border-transparent"
+                className="flex-1 px-4 py-3 border border-input rounded-lg bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 disabled={isLoading}
               />
-              <button
+              <Button
                 onClick={sendMessage}
                 disabled={!inputText.trim() || isLoading}
-                className="btn-primary px-6 py-3 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                size="lg"
+                className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg"
               >
-                <Send size={18} />
-              </button>
+                <Send className="h-4 w-4" />
+              </Button>
             </div>
-            <p className="text-xs text-slate-500 mt-2">
-              💡 <strong>Remember:</strong> This AI provides general information only. For professional mental health support, 
-              please contact Ms. Rimjhim directly.
+            <p className="text-xs text-muted-foreground mt-3 flex items-center gap-2">
+              <span>💡</span>
+              <span><strong>Remember:</strong> This AI provides general information only. For professional mental health support, 
+              please contact Ms. Rimjhim directly.</span>
             </p>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         {/* Contact CTA */}
-        <div className="mt-8 text-center">
-          <p className="text-slate-600 mb-4">Need professional help? Contact Ms. Rimjhim directly:</p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a
-              href="https://wa.me/919103034279"
-              className="btn-primary px-6 py-3 flex items-center justify-center gap-2"
-            >
-              <MessageCircle size={18} />
-              WhatsApp
-            </a>
-            <a
-              href="mailto:kunjcare@gmail.com"
-              className="border border-[var(--kunj-eb)] text-[var(--kunj-eb)] px-6 py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-[var(--kunj-eb)] hover:text-white transition-all duration-300"
-            >
-              <Send size={18} />
-              Email
-            </a>
-          </div>
-        </div>
+        <Card className="mt-8">
+          <CardContent className="pt-6 text-center">
+            <p className="text-muted-foreground mb-6">Need professional help? Contact Ms. Rimjhim directly:</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg"
+              >
+                <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  WhatsApp
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="border-2"
+              >
+                <a href="mailto:kunjcare@gmail.com">
+                  <Send className="mr-2 h-4 w-4" />
+                  Email
+                </a>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

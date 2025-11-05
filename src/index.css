@@ -2,9 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --kunj-java: #1CB6BF;
-  --kunj-eb: #178C93;
+@layer base {
+  :root {
+    /* KunjCare Brand Colors */
+    --kunj-java: #1CB6BF;
+    --kunj-eb: #178C93;
+    --kunj-dark: #0E2A2C;
+    --kunj-light: #E9FBFD;
+    --kunj-ring: #E6F5F6;
+    
+    /* Shadcn UI Color System */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 178 73% 43%; /* KunjCare teal */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 178 30% 95%; /* Light teal */
+    --secondary-foreground: 178 73% 43%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 178 30% 95%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 178 73% 43%; /* KunjCare teal */
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
 }
 
 .btn-primary {
@@ -30,6 +68,23 @@
 
 .brand-grad {
   background: linear-gradient(90deg, var(--kunj-eb), var(--kunj-java));
+}
+
+/* Gradient animation */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 3s ease infinite;
 }
 
 /* Mobile-specific improvements */
