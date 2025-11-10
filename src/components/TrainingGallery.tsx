@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { X, ChevronLeft, ChevronRight, Users } from 'lucide-react';
 import { Button } from './ui/button';
-import { cn } from '../lib/utils';
 
 interface GalleryImage {
   src: string;

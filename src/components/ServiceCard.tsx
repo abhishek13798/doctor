@@ -2,7 +2,6 @@ import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
-import { cn } from '../lib/utils';
 
 interface ServiceCardProps {
   title: string;
