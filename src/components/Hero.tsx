@@ -32,9 +32,13 @@ const Hero: React.FC = () => (
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] hover:shadow-xl hover:scale-105 transition-all duration-200"
+              className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] hover:shadow-xl hover:scale-105 transition-all duration-200 cursor-pointer"
             >
-              <a href="#services">
+              <a href="#services" onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('services');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}>
                 Book a Session
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
@@ -43,20 +47,32 @@ const Hero: React.FC = () => (
               asChild
               variant="outline"
               size="lg"
-              className="border-2 hover:bg-[var(--kunj-light)] hover:border-[var(--kunj-eb)]"
+              className="border-2 hover:bg-[var(--kunj-light)] hover:border-[var(--kunj-eb)] cursor-pointer"
             >
-              <a href="#ai-assistant">
+              <a href="#ai-assistant" onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('ai-assistant');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}>
                 Explore Resources
               </a>
             </Button>
           </div>
         </div>
         
-        <div className="relative group">
+        <a 
+          href="#about" 
+          onClick={(e) => {
+            e.preventDefault();
+            const element = document.getElementById('about');
+            if (element) element.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="relative group block cursor-pointer"
+        >
           <div className="absolute -inset-4 bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
           <div className="relative aspect-[4/3] bg-gradient-to-br from-[var(--kunj-light)] to-white rounded-2xl lg:rounded-3xl ring-2 ring-slate-200 shadow-2xl overflow-hidden">
             <img 
-              src="/founder.png" 
+              src="/founder.JPG" 
               alt="Ms. Rimjhim, Clinical Psychologist" 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -66,7 +82,7 @@ const Hero: React.FC = () => (
               <p className="text-white/90 text-sm sm:text-base">Clinical Psychologist (RCI)</p>
             </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>

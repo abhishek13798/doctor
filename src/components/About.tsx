@@ -25,8 +25,8 @@ const About: React.FC = () => {
     <section id="about" className="relative py-16 sm:py-20 bg-gradient-to-b from-white to-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-12">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-center lg:items-start">
-            <div className="flex-1 text-center lg:text-left space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+            <div className="text-center lg:text-left space-y-6 order-2 lg:order-1">
               <div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
                   About{' '}
@@ -39,15 +39,31 @@ const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 flex-shrink-0 group">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-                <img 
-                  src="/founder.png" 
-                  alt="Ms. Rimjhim, Clinical Psychologist" 
-                  className="relative w-full h-full object-cover rounded-2xl shadow-xl transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+            <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+              <a 
+                href="#reachout" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById('reachout');
+                  if (element) element.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] aspect-[3/4] flex-shrink-0 group block cursor-pointer"
+              >
+                <div className="relative w-full h-full">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] rounded-3xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                  <div className="relative w-full h-full rounded-2xl shadow-xl overflow-hidden">
+                    <img 
+                      src="/about.JPG" 
+                      alt="Ms. Rimjhim, Clinical Psychologist" 
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/founder.JPG';
+                      }}
+                    />
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
           
@@ -55,7 +71,14 @@ const About: React.FC = () => {
             {values.map((value) => {
               const Icon = value.icon;
               return (
-                <Card key={value.title} className="group hover:border-[var(--kunj-eb)]/50 transition-all duration-300">
+                <Card 
+                  key={value.title} 
+                  className="group hover:border-[var(--kunj-eb)]/50 transition-all duration-300 cursor-pointer"
+                  onClick={() => {
+                    const element = document.getElementById('reachout');
+                    if (element) element.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   <CardHeader>
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--kunj-eb)] to-[var(--kunj-java)] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="h-6 w-6 text-white" />

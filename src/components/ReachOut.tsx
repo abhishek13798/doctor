@@ -19,81 +19,96 @@ const ReachOut: React.FC = () => (
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <Card className="hover:shadow-lg transition-shadow duration-300">
-          <CardHeader className="text-center">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4">
-              <MessageCircle className="h-6 w-6 text-white" />
-            </div>
-            <CardTitle className="text-lg">WhatsApp</CardTitle>
-            <CardDescription>Quick Chat</CardDescription>
-          </CardHeader>
-          <CardContent className="text-center">
-            <Button
-              asChild
-              variant="outline"
-              className="w-full"
-            >
-              <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="https://wa.me/919103034279" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block"
+        >
+          <Card className="hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 group">
+            <CardHeader className="text-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <MessageCircle className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-lg">WhatsApp</CardTitle>
+              <CardDescription>Quick Chat</CardDescription>
+            </CardHeader>
+            <CardContent className="text-center">
+              <Button
+                variant="outline"
+                className="w-full"
+              >
                 Chat Now
-              </a>
-            </Button>
-          </CardContent>
-        </Card>
+              </Button>
+            </CardContent>
+          </Card>
+        </a>
 
-        <Card className="hover:shadow-lg transition-shadow duration-300">
-          <CardHeader className="text-center">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4">
-              <Mail className="h-6 w-6 text-white" />
-            </div>
-            <CardTitle className="text-lg">Email</CardTitle>
-            <CardDescription>Send Message</CardDescription>
-          </CardHeader>
-          <CardContent className="text-center">
-            <Button
-              asChild
-              variant="outline"
-              className="w-full"
-            >
-              <a href="mailto:kunjcare@gmail.com">
+        <a 
+          href="mailto:kunjcare@gmail.com"
+          className="block"
+        >
+          <Card className="hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 group">
+            <CardHeader className="text-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Mail className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-lg">Email</CardTitle>
+              <CardDescription>Send Message</CardDescription>
+            </CardHeader>
+            <CardContent className="text-center">
+              <Button
+                variant="outline"
+                className="w-full"
+              >
                 Send Email
-              </a>
-            </Button>
-          </CardContent>
-        </Card>
+              </Button>
+            </CardContent>
+          </Card>
+        </a>
 
-        <Card className="hover:shadow-lg transition-shadow duration-300">
-          <CardHeader className="text-center">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4">
-              <Phone className="h-6 w-6 text-white" />
-            </div>
-            <CardTitle className="text-lg">Phone</CardTitle>
-            <CardDescription>Call Us</CardDescription>
-          </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-sm font-medium text-foreground">+91-9103034279</p>
-          </CardContent>
-        </Card>
+        <a 
+          href="tel:+919103034279"
+          className="block"
+        >
+          <Card className="hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 group">
+            <CardHeader className="text-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Phone className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-lg">Phone</CardTitle>
+              <CardDescription>Call Us</CardDescription>
+            </CardHeader>
+            <CardContent className="text-center">
+              <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">+91-9103034279</p>
+            </CardContent>
+          </Card>
+        </a>
 
-        <Card className="hover:shadow-lg transition-shadow duration-300">
-          <CardHeader className="text-center">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4">
-              <Globe className="h-6 w-6 text-white" />
-            </div>
-            <CardTitle className="text-lg">Website</CardTitle>
-            <CardDescription>Visit Us</CardDescription>
-          </CardHeader>
-          <CardContent className="text-center">
-            <Button
-              asChild
-              variant="ghost"
-              className="w-full"
-            >
-              <a href="https://www.kunjcare.com" target="_blank" rel="noopener noreferrer">
+        <a 
+          href="https://www.kunjcare.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block"
+        >
+          <Card className="hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 group">
+            <CardHeader className="text-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Globe className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-lg">Website</CardTitle>
+              <CardDescription>Visit Us</CardDescription>
+            </CardHeader>
+            <CardContent className="text-center">
+              <Button
+                variant="ghost"
+                className="w-full"
+              >
                 www.kunjcare.com
-              </a>
-            </Button>
-          </CardContent>
-        </Card>
+              </Button>
+            </CardContent>
+          </Card>
+        </a>
       </div>
 
       <div className="text-center">

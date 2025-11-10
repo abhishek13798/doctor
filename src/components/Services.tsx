@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceCard from './ServiceCard';
+import TrainingGallery from './TrainingGallery';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { Card, CardContent } from './ui/card';
 import { cn } from '../lib/utils';
@@ -126,6 +127,9 @@ const Services: React.FC = () => {
                 approach="Interactive, engaging workshops that combine psychoeducation with practical exercises. Focus on building skills that employees can immediately apply in their work and personal lives."
               />
             </div>
+            
+            {/* Training Gallery for Organizations */}
+            <TrainingGallery />
           </TabsContent>
         </Tabs>
 

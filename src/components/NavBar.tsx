@@ -9,14 +9,45 @@ const NavBar: React.FC = () => {
 
   const navItems = ["Home", "About", "Services", "AI Assistant", "Contact"];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string) => {
+    e.preventDefault();
+    setActiveLink(item);
+    
+    // Map navigation items to section IDs
+    let sectionId = '';
+    const itemLower = item.toLowerCase();
+    
+    if (itemLower === 'home') {
+      sectionId = 'home';
+    } else if (itemLower === 'about') {
+      sectionId = 'about';
+    } else if (itemLower === 'services') {
+      sectionId = 'services';
+    } else if (itemLower === 'ai assistant') {
+      sectionId = 'ai-assistant';
+    } else if (itemLower === 'contact') {
+      sectionId = 'reachout';
+    } else {
+      // Fallback: try to convert to ID format
+      sectionId = itemLower.replace(/\s+/g, '-');
+    }
+    
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.warn(`Section with id "${sectionId}" not found`);
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <a 
             href="#home" 
-            className="flex items-center gap-3 group transition-transform duration-200 hover:scale-105"
-            onClick={() => setActiveLink('Home')}
+            className="flex items-center gap-3 group transition-transform duration-200 hover:scale-105 cursor-pointer"
+            onClick={(e) => handleNavClick(e, 'Home')}
           >
             <div className="relative">
               <img 
@@ -41,9 +72,9 @@ const NavBar: React.FC = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
-                onClick={() => setActiveLink(item)}
+                onClick={(e) => handleNavClick(e, item)}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                  "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer",
                   activeLink === item
                     ? "text-[var(--kunj-eb)] bg-[var(--kunj-light)]"
                     : "text-slate-700 hover:text-[var(--kunj-eb)] hover:bg-slate-50"
@@ -102,12 +133,12 @@ const NavBar: React.FC = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '')}`}
-                onClick={() => {
-                  setActiveLink(item);
+                onClick={(e) => {
+                  handleNavClick(e, item);
                   setIsMenuOpen(false);
                 }}
                 className={cn(
-                  "block px-4 py-3 rounded-lg text-sm font-medium transition-colors",
+                  "block px-4 py-3 rounded-lg text-sm font-medium transition-colors cursor-pointer",
                   activeLink === item
                     ? "text-[var(--kunj-eb)] bg-[var(--kunj-light)]"
                     : "text-slate-700 hover:bg-slate-50"
