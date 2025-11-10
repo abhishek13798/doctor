@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Send, Bot, User, Loader2, Brain, Mail } from 'lucide-react';
+import { Send, Bot, User, Loader2, Brain } from 'lucide-react';
 import OpenAI from 'openai';
 import { API_CONFIG, validateApiKey } from '../config/api';
 import { findBestResponse } from '../lib/aiKnowledgeBase';
@@ -262,36 +262,6 @@ Contact information to mention when appropriate:
               <span><strong>Remember:</strong> This AI provides general information only. For professional mental health support, 
               please contact Ms. Rimjhim directly.</span>
             </p>
-          </CardContent>
-        </Card>
-
-        {/* Contact CTA */}
-        <Card className="mt-6 sm:mt-8">
-          <CardContent className="pt-4 sm:pt-6 text-center p-4 sm:p-6">
-            <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">Need professional help? Contact Ms. Rimjhim directly:</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg w-full sm:w-auto text-sm sm:text-base flex items-center justify-center"
-              >
-                <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
-                  <MessageCircle className="mr-2 h-4 w-4 flex-shrink-0" />
-                  WhatsApp
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="border-2 w-full sm:w-auto text-sm sm:text-base flex items-center justify-center"
-              >
-                <a href="mailto:kunjcare@gmail.com" className="flex items-center justify-center">
-                  <Mail className="mr-2 h-4 w-4 flex-shrink-0" />
-                  Email
-                </a>
-              </Button>
-            </div>
           </CardContent>
         </Card>
       </div>

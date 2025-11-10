@@ -28,17 +28,17 @@ const Hero: React.FC = () => (
             Compassionate support for your mental health journey with <strong>Ms. Rimjhim</strong> — Licensed Clinical Psychologist (RCI), trained at Government Medical College & Hospital, Chandigarh. Specialized in emotional regulation, stress management, suicide prevention, and personality disorders.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2 sm:pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center lg:items-start lg:justify-start pt-2 sm:pt-4">
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] hover:shadow-xl hover:scale-105 transition-all duration-200 cursor-pointer text-sm sm:text-base w-full sm:w-auto flex items-center justify-center"
+              className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] hover:shadow-xl hover:scale-105 transition-all duration-200 cursor-pointer text-sm sm:text-base w-full sm:w-auto flex items-center justify-center mx-auto sm:mx-0"
             >
               <a href="#services" onClick={(e) => {
                 e.preventDefault();
                 const element = document.getElementById('services');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }} className="flex items-center justify-center">
+              }} className="flex items-center justify-center w-full">
                 Book a Session
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
               </a>
@@ -47,13 +47,13 @@ const Hero: React.FC = () => (
               asChild
               variant="outline"
               size="lg"
-              className="border-2 hover:bg-[var(--kunj-light)] hover:border-[var(--kunj-eb)] cursor-pointer text-sm sm:text-base w-full sm:w-auto"
+              className="border-2 hover:bg-[var(--kunj-light)] hover:border-[var(--kunj-eb)] cursor-pointer text-sm sm:text-base w-full sm:w-auto flex items-center justify-center mx-auto sm:mx-0"
             >
               <a href="#ai-assistant" onClick={(e) => {
                 e.preventDefault();
                 const element = document.getElementById('ai-assistant');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}>
+              }} className="flex items-center justify-center w-full">
                 Explore Resources
               </a>
             </Button>
