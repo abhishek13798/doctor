@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Send, Bot, User, Loader2, Brain } from 'lucide-react';
+import { MessageCircle, Send, Bot, User, Loader2, Brain, Mail } from 'lucide-react';
 import OpenAI from 'openai';
 import { API_CONFIG, validateApiKey } from '../config/api';
 import { findBestResponse } from '../lib/aiKnowledgeBase';
@@ -116,19 +116,19 @@ Contact information to mention when appropriate:
   };
 
   return (
-    <section id="ai-assistant" className="relative py-16 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-white">
+    <section id="ai-assistant" className="relative py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-slate-50 to-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-4">
-            <Brain className="h-4 w-4" />
-            AI-Powered Assistant
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 text-xs sm:text-sm font-medium text-primary mb-3 sm:mb-4">
+            <Brain className="h-3 w-3 sm:h-4 sm:w-4" />
+            <span className="whitespace-nowrap">AI-Powered Assistant</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">
             <span className="bg-gradient-to-r from-primary via-[var(--kunj-java)] to-primary bg-clip-text text-transparent">
               AI Health Assistant
             </span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-2 sm:px-0">
             Ask me about mental health, therapy, anxiety, depression, stress management, or general wellness. 
             I provide detailed, helpful information and practical strategies. Remember to consult with Ms. Rimjhim for professional advice.
           </p>
@@ -136,14 +136,14 @@ Contact information to mention when appropriate:
 
         <Card className="shadow-2xl border-2 overflow-hidden">
           {/* Chat Header */}
-          <CardHeader className="bg-gradient-to-r from-primary to-[var(--kunj-java)] text-primary-foreground">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <Brain className="h-6 w-6" />
+          <CardHeader className="bg-gradient-to-r from-primary to-[var(--kunj-java)] text-primary-foreground p-4 sm:p-6">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm flex-shrink-0">
+                <Brain className="h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <div>
-                <CardTitle className="text-white">KunjCare AI Assistant</CardTitle>
-                <CardDescription className="text-white/90">
+              <div className="min-w-0">
+                <CardTitle className="text-white text-base sm:text-lg">KunjCare AI Assistant</CardTitle>
+                <CardDescription className="text-white/90 text-xs sm:text-sm">
                   Intelligent mental health support • General information only
                 </CardDescription>
               </div>
@@ -151,26 +151,26 @@ Contact information to mention when appropriate:
           </CardHeader>
 
           {/* Messages */}
-          <div className="h-96 overflow-y-auto p-4 space-y-4">
+          <div className="h-[300px] sm:h-96 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex gap-3 ${message.isUser ? 'justify-end' : 'justify-start'}`}
               >
                 {!message.isUser && (
-                  <div className="w-8 h-8 bg-[var(--kunj-eb)] rounded-full flex items-center justify-center flex-shrink-0">
-                    <Bot size={16} className="text-white" />
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[var(--kunj-eb)] rounded-full flex items-center justify-center flex-shrink-0">
+                    <Bot size={14} className="sm:w-4 sm:h-4 text-white" />
                   </div>
                 )}
                 <div
                   className={cn(
-                    "max-w-[85%] p-4 rounded-xl shadow-sm",
+                    "max-w-[85%] sm:max-w-[85%] p-3 sm:p-4 rounded-xl shadow-sm",
                     message.isUser
                       ? 'bg-primary text-primary-foreground'
                       : 'bg-muted'
                   )}
                 >
-                  <div className="text-sm leading-relaxed whitespace-pre-wrap space-y-2">
+                  <div className="text-xs sm:text-sm leading-relaxed whitespace-pre-wrap space-y-2">
                     {message.text.split('\n').map((line, index) => {
                       // Format bold text (**text**)
                       if (line.startsWith('**') && line.endsWith('**')) {
@@ -214,22 +214,22 @@ Contact information to mention when appropriate:
                   </p>
                 </div>
                 {message.isUser && (
-                  <div className="w-8 h-8 bg-slate-300 rounded-full flex items-center justify-center flex-shrink-0">
-                    <User size={16} className="text-slate-600" />
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-slate-300 rounded-full flex items-center justify-center flex-shrink-0">
+                    <User size={14} className="sm:w-4 sm:h-4 text-slate-600" />
                   </div>
                 )}
               </div>
             ))}
 
             {isLoading && (
-              <div className="flex gap-3 justify-start">
-                <div className="w-8 h-8 bg-[var(--kunj-eb)] rounded-full flex items-center justify-center flex-shrink-0">
-                  <Brain size={16} className="text-white" />
+              <div className="flex gap-2 sm:gap-3 justify-start">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[var(--kunj-eb)] rounded-full flex items-center justify-center flex-shrink-0">
+                  <Brain size={14} className="sm:w-4 sm:h-4 text-white" />
                 </div>
-                <div className="bg-muted p-4 rounded-xl shadow-sm">
+                <div className="bg-muted p-3 sm:p-4 rounded-xl shadow-sm">
                   <div className="flex items-center gap-2">
-                    <Loader2 size={16} className="animate-spin text-primary" />
-                    <span className="text-sm text-foreground">Thinking...</span>
+                    <Loader2 size={14} className="sm:w-4 sm:h-4 animate-spin text-primary" />
+                    <span className="text-xs sm:text-sm text-foreground">Thinking...</span>
                   </div>
                 </div>
               </div>
@@ -237,27 +237,27 @@ Contact information to mention when appropriate:
           </div>
 
           {/* Input */}
-          <CardContent className="border-t p-6">
-            <div className="flex gap-3">
+          <CardContent className="border-t p-4 sm:p-6">
+            <div className="flex gap-2 sm:gap-3">
               <input
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask about anxiety, depression, stress, therapy, self-care, or any mental health topic..."
-                className="flex-1 px-4 py-3 border border-input rounded-lg bg-background text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                placeholder="Ask about anxiety, depression, stress..."
+                className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 border border-input rounded-lg bg-background text-xs sm:text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 disabled={isLoading}
               />
               <Button
                 onClick={sendMessage}
                 disabled={!inputText.trim() || isLoading}
                 size="lg"
-                className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg"
+                className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg flex-shrink-0 px-3 sm:px-4"
               >
                 <Send className="h-4 w-4" />
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground mt-3 flex items-center gap-2">
+            <p className="text-xs text-muted-foreground mt-3 flex items-start gap-2">
               <span>💡</span>
               <span><strong>Remember:</strong> This AI provides general information only. For professional mental health support, 
               please contact Ms. Rimjhim directly.</span>
@@ -266,17 +266,17 @@ Contact information to mention when appropriate:
         </Card>
 
         {/* Contact CTA */}
-        <Card className="mt-8">
-          <CardContent className="pt-6 text-center">
-            <p className="text-muted-foreground mb-6">Need professional help? Contact Ms. Rimjhim directly:</p>
+        <Card className="mt-6 sm:mt-8">
+          <CardContent className="pt-4 sm:pt-6 text-center p-4 sm:p-6">
+            <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">Need professional help? Contact Ms. Rimjhim directly:</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg"
+                className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg w-full sm:w-auto text-sm sm:text-base flex items-center justify-center"
               >
-                <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-2 h-4 w-4" />
+                <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                  <MessageCircle className="mr-2 h-4 w-4 flex-shrink-0" />
                   WhatsApp
                 </a>
               </Button>
@@ -284,10 +284,10 @@ Contact information to mention when appropriate:
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-2"
+                className="border-2 w-full sm:w-auto text-sm sm:text-base flex items-center justify-center"
               >
-                <a href="mailto:kunjcare@gmail.com">
-                  <Send className="mr-2 h-4 w-4" />
+                <a href="mailto:kunjcare@gmail.com" className="flex items-center justify-center">
+                  <Mail className="mr-2 h-4 w-4 flex-shrink-0" />
                   Email
                 </a>
               </Button>

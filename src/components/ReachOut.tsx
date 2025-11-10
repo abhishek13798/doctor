@@ -176,9 +176,9 @@ const ReachOut: React.FC = () => {
                 window.location.href = `mailto:${email}`;
                 setEmailOpen(false);
               }}
-              className="bg-gradient-to-r from-primary to-[var(--kunj-java)]"
+              className="bg-gradient-to-r from-primary to-[var(--kunj-java)] flex items-center justify-center"
             >
-              <Mail className="mr-2 h-4 w-4" />
+              <Mail className="mr-2 h-4 w-4 flex-shrink-0" />
               Open Email Client
             </Button>
           </DialogFooter>
@@ -231,9 +231,9 @@ const ReachOut: React.FC = () => {
                 window.location.href = `tel:${phone}`;
                 setPhoneOpen(false);
               }}
-              className="bg-gradient-to-r from-primary to-[var(--kunj-java)]"
+              className="bg-gradient-to-r from-primary to-[var(--kunj-java)] flex items-center justify-center"
             >
-              <Phone className="mr-2 h-4 w-4" />
+              <Phone className="mr-2 h-4 w-4 flex-shrink-0" />
               Call Now
             </Button>
           </DialogFooter>
@@ -277,9 +277,9 @@ const ReachOut: React.FC = () => {
             </Button>
             <Button
               onClick={handleWhatsAppConfirm}
-              className="bg-gradient-to-r from-primary to-[var(--kunj-java)]"
+              className="bg-gradient-to-r from-primary to-[var(--kunj-java)] flex items-center justify-center"
             >
-              <ExternalLink className="mr-2 h-4 w-4" />
+              <ExternalLink className="mr-2 h-4 w-4 flex-shrink-0" />
               Connect on WhatsApp
             </Button>
           </DialogFooter>

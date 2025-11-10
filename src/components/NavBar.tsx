@@ -94,10 +94,10 @@ const NavBar: React.FC = () => {
               asChild
               variant="default"
               size="sm"
-              className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] hover:shadow-lg"
+              className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] hover:shadow-lg flex items-center justify-center"
             >
-              <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-4 w-4" />
+              <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                <MessageCircle className="mr-2 h-4 w-4 flex-shrink-0" />
                 WhatsApp
               </a>
             </Button>
@@ -105,9 +105,10 @@ const NavBar: React.FC = () => {
               asChild
               variant="outline"
               size="sm"
+              className="flex items-center justify-center"
             >
-              <a href="mailto:kunjcare@gmail.com">
-                <Mail className="mr-2 h-4 w-4" />
+              <a href="mailto:kunjcare@gmail.com" className="flex items-center justify-center">
+                <Mail className="mr-2 h-4 w-4 flex-shrink-0" />
                 Email
               </a>
             </Button>
@@ -151,20 +152,20 @@ const NavBar: React.FC = () => {
               <Button
                 asChild
                 variant="default"
-                className="w-full bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)]"
+                className="w-full bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] flex items-center justify-center"
               >
-                <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="mr-2 h-4 w-4" />
+                <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                  <MessageCircle className="mr-2 h-4 w-4 flex-shrink-0" />
                   WhatsApp
                 </a>
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="w-full"
+                className="w-full flex items-center justify-center"
               >
-                <a href="mailto:kunjcare@gmail.com">
-                  <Mail className="mr-2 h-4 w-4" />
+                <a href="mailto:kunjcare@gmail.com" className="flex items-center justify-center">
+                  <Mail className="mr-2 h-4 w-4 flex-shrink-0" />
                   Email
                 </a>
               </Button>

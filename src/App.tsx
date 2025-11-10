@@ -23,9 +23,9 @@ const App: React.FC = () => {
       <Services />
       <AIHealthAssistant />
       <ReachOut />
-      <footer className="py-8 sm:py-10 text-center border-t bg-muted/50">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="text-sm text-muted-foreground">
+      <footer className="py-6 sm:py-8 lg:py-10 text-center border-t bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-xs sm:text-sm text-muted-foreground px-2">
             © {new Date().getFullYear()} <a 
               href="#home" 
               onClick={(e) => {
@@ -38,7 +38,7 @@ const App: React.FC = () => {
               KunjCare
             </a> • <a href="mailto:kunjcare@gmail.com" className="hover:text-primary transition-colors cursor-pointer">Ms. Rimjhim</a>, Clinical Psychologist (RCI)
           </p>
-          <div className="mt-4 flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
+          <div className="mt-3 sm:mt-4 flex flex-wrap justify-center gap-3 sm:gap-4 text-xs text-muted-foreground px-2">
             <a 
               href="#home" 
               onClick={(e) => {

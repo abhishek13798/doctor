@@ -57,26 +57,26 @@ const TrainingGallery: React.FC = () => {
   return (
     <>
       <div className="mt-12 mb-8">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-4">
-            <Users className="h-4 w-4" />
-            Indian Army Training Programs
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-primary/10 border border-primary/20 text-xs sm:text-sm font-medium text-primary mb-3 sm:mb-4">
+            <Users className="h-3 w-3 sm:h-4 sm:w-4" />
+            <span className="whitespace-nowrap">Indian Army Training Programs</span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-bold mb-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 px-2 sm:px-0">
             <span className="bg-gradient-to-r from-primary to-[var(--kunj-java)] bg-clip-text text-transparent">
               Training Gallery
             </span>
           </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto px-2 sm:px-0">
             Real-world experience delivering mental health training and workshops to the Indian Army
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {images.map((image, index) => (
             <Card
               key={index}
-              className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden border-2 hover:border-primary/30 bg-white"
+              className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden border-2 hover:border-primary/30 bg-white active:scale-95 sm:active:scale-100 touch-manipulation"
               onClick={() => openModal(index)}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
@@ -135,20 +135,20 @@ const TrainingGallery: React.FC = () => {
       {/* Image Modal */}
       {selectedImage !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
           onClick={closeModal}
         >
-          <div className="relative max-w-5xl w-full max-h-[90vh] flex items-center gap-4">
+          <div className="relative max-w-5xl w-full max-h-[95vh] sm:max-h-[90vh] flex items-center gap-2 sm:gap-4">
             <Button
               variant="ghost"
               size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white w-8 h-8 sm:w-10 sm:h-10"
               onClick={(e) => {
                 e.stopPropagation();
                 prevImage();
               }}
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
             </Button>
 
             <div
@@ -158,37 +158,37 @@ const TrainingGallery: React.FC = () => {
               <img
                 src={images[selectedImage].src}
                 alt={images[selectedImage].alt}
-                className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                className="max-w-full max-h-[95vh] sm:max-h-[90vh] object-contain rounded-lg shadow-2xl"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600"%3E%3Crect fill="%23e5e7eb" width="800" height="600"/%3E%3Ctext fill="%239ca3af" font-family="sans-serif" font-size="24" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3EImage Not Found%3C/text%3E%3C/svg%3E';
                 }}
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
-                <h3 className="text-white text-xl font-bold mb-2">{images[selectedImage].title}</h3>
-                <p className="text-white/90 text-sm">{images[selectedImage].description}</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6 rounded-b-lg">
+                <h3 className="text-white text-base sm:text-xl font-bold mb-1 sm:mb-2">{images[selectedImage].title}</h3>
+                <p className="text-white/90 text-xs sm:text-sm">{images[selectedImage].description}</p>
               </div>
             </div>
 
             <Button
               variant="ghost"
               size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 text-white w-8 h-8 sm:w-10 sm:h-10"
               onClick={(e) => {
                 e.stopPropagation();
                 nextImage();
               }}
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
             </Button>
 
             <Button
               variant="ghost"
               size="icon"
-              className="absolute top-4 right-4 z-10 bg-white/10 hover:bg-white/20 text-white"
+              className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 bg-white/10 hover:bg-white/20 text-white w-8 h-8 sm:w-10 sm:h-10"
               onClick={closeModal}
             >
-              <X className="h-6 w-6" />
+              <X className="h-4 w-4 sm:h-6 sm:w-6" />
             </Button>
           </div>
         </div>
