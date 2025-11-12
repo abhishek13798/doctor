@@ -30,8 +30,8 @@ If anxiety interferes with daily life, relationships, or work, it's important to
 
 **Contact Information:**
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 Remember, this is general information. For personalized treatment, please consult with Ms. Rimjhim directly.`
   },
@@ -62,8 +62,8 @@ If you're experiencing thoughts of self-harm or suicide, please seek immediate h
 
 **Contact Information:**
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 This is general information. Professional assessment and treatment are essential for depression.`
   },
@@ -89,8 +89,8 @@ Ms. Rimjhim offers corporate workshops on stress management, burnout prevention,
 
 **Contact Information:**
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 For personalized stress management strategies, consider booking a session with Ms. Rimjhim.`
   },
@@ -123,8 +123,8 @@ Ms. Rimjhim uses evidence-based approaches:
 **Getting Started:**
 To book a session or learn more, contact Ms. Rimjhim:
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 Therapy is a journey of growth and healing. Taking the first step is often the hardest part.`
   },
@@ -150,8 +150,8 @@ Ms. Rimjhim specializes in helping individuals build self-esteem and confidence 
 
 **Contact Information:**
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 Remember, building self-esteem is a process. Professional support can accelerate your journey.`
   },
@@ -177,8 +177,8 @@ Ms. Rimjhim provides trauma-informed care using evidence-based approaches. She c
 **Important:**
 If you're in immediate danger, contact emergency services. For trauma support, reach out to Ms. Rimjhim:
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 Trauma recovery is possible. You don't have to go through it alone.`
   },
@@ -204,8 +204,8 @@ If sleep problems persist or are related to anxiety or depression, therapy can h
 
 **Contact Information:**
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 For persistent sleep issues, consider consulting with Ms. Rimjhim.`
   },
@@ -235,8 +235,8 @@ Ms. Rimjhim helps individuals and couples improve communication, resolve conflic
 
 **Contact Information:**
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 Healthy relationships require effort and sometimes professional support.`
   },
@@ -266,8 +266,8 @@ Ms. Rimjhim helps individuals develop personalized wellness plans that address t
 
 **Contact Information:**
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 Remember, mental wellness is a journey, not a destination. Professional support can help you navigate challenges and build resilience.`
   },
@@ -280,8 +280,8 @@ Remember, mental wellness is a journey, not a destination. Professional support 
 - **National Suicide Prevention Helpline**: 9152987821
 - **Emergency Services**: 112 or 100
 - **Contact Ms. Rimjhim directly** for urgent support:
-  - Phone: +91-9103034279
-  - WhatsApp: +91-9103034279
+  - Phone: +91-6006763586
+  - WhatsApp: +91-6006763586
   - Email: kunjcare@gmail.com
 
 **You Are Not Alone:**
@@ -313,8 +313,8 @@ I provide general information only and cannot replace professional medical or me
 
 **Contact Information:**
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586
 
 **Getting Professional Help:**
 Ms. Rimjhim is a Licensed Clinical Psychologist (RCI) specializing in:

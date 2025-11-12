@@ -53,7 +53,7 @@ The AI assistant provides:
 ## Contact Information
 
 - **Email**: kunjcare@gmail.com
-- **Phone/WhatsApp**: +91-9103034279
+- **Phone/WhatsApp**: +91-6006763586
 - **Practitioner**: Ms. Rimjhim (Licensed Clinical Psychologist - RCI)
 
 ## Tech Stack

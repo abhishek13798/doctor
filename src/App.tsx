@@ -11,7 +11,7 @@ import FloatingAIButton from './components/FloatingAIButton';
 /**
  * KunjCare — Psychotherapy Web App (React + Tailwind)
  * Therapist: Ms. Rimjhim, Licensed Clinical Psychologist (RCI)
- * Website: www.kunjcare.com | Email: kunjcare@gmail.com | Phone: +91-9103034279
+ * Website: www.kunjcare.com | Email: kunjcare@gmail.com | Phone: +91-6006763586
  */
 
 const App: React.FC = () => {

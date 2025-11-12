@@ -71,8 +71,8 @@ IMPORTANT GUIDELINES:
 
 Contact information to mention when appropriate:
 - Email: kunjcare@gmail.com
-- Phone: +91-9103034279
-- WhatsApp: +91-9103034279`
+- Phone: +91-6006763586
+- WhatsApp: +91-6006763586`
             },
             {
               role: "user",

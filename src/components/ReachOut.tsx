@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MessageCircle, Phone, Copy, Check, ExternalLink } from 'lucide-react';
+import { Mail, MessageCircle, Phone, Copy, Check, ExternalLink, Linkedin } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import {
@@ -19,8 +19,9 @@ const ReachOut: React.FC = () => {
   const [phoneCopied, setPhoneCopied] = useState(false);
 
   const email = 'kunjcare@gmail.com';
-  const phone = '+91-9103034279';
-  const whatsappNumber = '919103034279';
+  const phone = '+91-6006763586';
+  const whatsappNumber = '916006763586';
+  const linkedinUrl = 'https://www.linkedin.com/in/rimjhim-417977199?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app';
   const whatsappMessage = encodeURIComponent(
     'Hello! I would like to schedule a consultation with Ms. Rimjhim. Could you please provide me with available appointment times?'
   );
@@ -56,7 +57,7 @@ const ReachOut: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {/* WhatsApp Card */}
           <Card 
             className="hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 group"
@@ -115,6 +116,28 @@ const ReachOut: React.FC = () => {
             </CardHeader>
             <CardContent className="text-center">
               <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{phone}</p>
+            </CardContent>
+          </Card>
+
+          {/* LinkedIn Card */}
+          <Card 
+            className="hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-105 group"
+            onClick={() => window.open(linkedinUrl, '_blank', 'noopener,noreferrer')}
+          >
+            <CardHeader className="text-center">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-[var(--kunj-java)] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                <Linkedin className="h-6 w-6 text-white" />
+              </div>
+              <CardTitle className="text-lg">LinkedIn</CardTitle>
+              <CardDescription>Connect</CardDescription>
+            </CardHeader>
+            <CardContent className="text-center">
+              <Button
+                variant="outline"
+                className="w-full"
+              >
+                View Profile
+              </Button>
             </CardContent>
           </Card>
         </div>

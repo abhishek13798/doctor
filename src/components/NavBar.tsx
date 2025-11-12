@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MessageCircle, Menu, X } from 'lucide-react';
+import { Mail, MessageCircle, Menu, X, Linkedin } from 'lucide-react';
 import { Button } from './ui/button';
 import { cn } from '../lib/utils';
 
@@ -96,7 +96,7 @@ const NavBar: React.FC = () => {
               size="sm"
               className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] hover:shadow-lg flex items-center justify-center"
             >
-              <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+              <a href="https://wa.me/916006763586" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                 <MessageCircle className="mr-2 h-4 w-4 flex-shrink-0" />
                 WhatsApp
               </a>
@@ -110,6 +110,17 @@ const NavBar: React.FC = () => {
               <a href="mailto:kunjcare@gmail.com" className="flex items-center justify-center">
                 <Mail className="mr-2 h-4 w-4 flex-shrink-0" />
                 Email
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="flex items-center justify-center"
+            >
+              <a href="https://www.linkedin.com/in/rimjhim-417977199?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                <Linkedin className="mr-2 h-4 w-4 flex-shrink-0" />
+                LinkedIn
               </a>
             </Button>
           </div>
@@ -154,7 +165,7 @@ const NavBar: React.FC = () => {
                 variant="default"
                 className="w-full bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] flex items-center justify-center"
               >
-                <a href="https://wa.me/919103034279" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                <a href="https://wa.me/916006763586" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                   <MessageCircle className="mr-2 h-4 w-4 flex-shrink-0" />
                   WhatsApp
                 </a>
@@ -167,6 +178,16 @@ const NavBar: React.FC = () => {
                 <a href="mailto:kunjcare@gmail.com" className="flex items-center justify-center">
                   <Mail className="mr-2 h-4 w-4 flex-shrink-0" />
                   Email
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="w-full flex items-center justify-center"
+              >
+                <a href="https://www.linkedin.com/in/rimjhim-417977199?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                  <Linkedin className="mr-2 h-4 w-4 flex-shrink-0" />
+                  LinkedIn
                 </a>
               </Button>
             </div>
