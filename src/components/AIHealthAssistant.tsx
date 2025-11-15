@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Send, Bot, User, Loader2, Brain } from 'lucide-react';
-import OpenAI from 'openai';
 import { API_CONFIG, validateApiKey } from '../config/api';
 import { findBestResponse } from '../lib/aiKnowledgeBase';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
@@ -46,6 +45,7 @@ const AIHealthAssistant: React.FC = () => {
     // Try OpenAI API first if available
     if (validateApiKey()) {
       try {
+        const { default: OpenAI } = await import('openai');
         const openai = new OpenAI({
           apiKey: API_CONFIG.OPENAI_API_KEY,
           dangerouslyAllowBrowser: true
@@ -257,11 +257,19 @@ Contact information to mention when appropriate:
                 <Send className="h-4 w-4" />
               </Button>
             </div>
-            <p className="text-xs text-muted-foreground mt-3 flex items-start gap-2">
-              <span>💡</span>
-              <span><strong>Remember:</strong> This AI provides general information only. For professional mental health support, 
-              please contact Ms. Rimjhim directly.</span>
-            </p>
+            <div className="space-y-2 mt-3">
+              <p className="text-xs text-muted-foreground flex items-start gap-2">
+                <span>💡</span>
+                <span><strong>Remember:</strong> This AI provides general information only. For professional mental health support, 
+                please contact Ms. Rimjhim directly.</span>
+              </p>
+              <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-xs text-red-800 flex items-start gap-2">
+                  <span>🚨</span>
+                  <span><strong>Emergency?</strong> If you're in crisis, call immediately: <a href="tel:8448848445" className="font-bold underline">8448-8448-45</a> or <a href="tel:08046110007" className="font-bold underline">080-46110007</a></span>
+                </p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>

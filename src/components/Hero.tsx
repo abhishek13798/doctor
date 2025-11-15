@@ -75,6 +75,8 @@ const Hero: React.FC = () => (
               src="/founder.JPG" 
               alt="Ms. Rimjhim, Clinical Psychologist" 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="eager"
+              fetchPriority="high"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 lg:p-8">

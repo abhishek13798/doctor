@@ -84,6 +84,7 @@ const TrainingGallery: React.FC = () => {
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                   onError={(e) => {
                     // Fallback if image doesn't exist
                     const target = e.target as HTMLImageElement;
@@ -159,6 +160,7 @@ const TrainingGallery: React.FC = () => {
                 src={images[selectedImage].src}
                 alt={images[selectedImage].alt}
                 className="max-w-full max-h-[95vh] sm:max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                loading="eager"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="800" height="600"%3E%3Crect fill="%23e5e7eb" width="800" height="600"/%3E%3Ctext fill="%239ca3af" font-family="sans-serif" font-size="24" x="50%25" y="50%25" text-anchor="middle" dy=".3em"%3EImage Not Found%3C/text%3E%3C/svg%3E';

@@ -7,7 +7,7 @@ const NavBar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
 
-  const navItems = ["Home", "About", "Services", "AI Assistant", "Contact"];
+  const navItems = ["Home", "About", "Services", "AI Assistant", "Techniques", "Contact"];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string) => {
     e.preventDefault();
@@ -25,6 +25,8 @@ const NavBar: React.FC = () => {
       sectionId = 'services';
     } else if (itemLower === 'ai assistant') {
       sectionId = 'ai-assistant';
+    } else if (itemLower === 'techniques') {
+      sectionId = 'techniques';
     } else if (itemLower === 'contact') {
       sectionId = 'reachout';
     } else {
@@ -54,6 +56,8 @@ const NavBar: React.FC = () => {
                 src="/logo.png" 
                 alt="KunjCare Logo" 
                 className="w-10 h-10 sm:w-12 sm:h-12 object-contain transition-all duration-300 group-hover:rotate-3"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
             <div className="flex flex-col">

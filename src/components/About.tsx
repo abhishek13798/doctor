@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
-import { Heart, BookOpen, Leaf } from 'lucide-react';
+import { Dialog, DialogContent } from './ui/dialog';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from './ui/carousel';
+import { Heart, BookOpen, Leaf, X } from 'lucide-react';
+import { Button } from './ui/button';
 
 const About: React.FC = () => {
+  const [selectedPhoto, setSelectedPhoto] = useState<number | null>(null);
+
+  const photos = [
+    { src: '/about.JPG', alt: 'Ms. Rimjhim - Professional Photo' },
+    { src: '/founder2.JPG', alt: 'Ms. Rimjhim - Clinical Psychologist' },
+    { src: '/founder3.JPG', alt: 'Ms. Rimjhim - Licensed Professional' },
+    { src: '/founder4.JPG', alt: 'Ms. Rimjhim - Professional Portrait' }
+  ];
+
+  const openPhoto = (index: number) => {
+    setSelectedPhoto(index);
+  };
+
+  const closePhoto = () => {
+    setSelectedPhoto(null);
+  };
+
+
   const values = [
     {
       title: "Empathy & Confidentiality",
@@ -56,6 +83,7 @@ const About: React.FC = () => {
                       src="/about.JPG" 
                       alt="Ms. Rimjhim, Clinical Psychologist" 
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src = '/founder.JPG';
@@ -94,8 +122,110 @@ const About: React.FC = () => {
               );
             })}
           </div>
+
+          {/* Professional Photo Gallery */}
+          <div className="mt-12 sm:mt-16">
+            <div className="text-center mb-6 sm:mb-8">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                <span className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] bg-clip-text text-transparent">
+                  Professional Gallery
+                </span>
+              </h3>
+              <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+                Get to know Ms. Rimjhim through these professional photographs
+              </p>
+            </div>
+            <div className="px-4 sm:px-8 md:px-12 lg:px-16">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full max-w-4xl mx-auto"
+              >
+                <CarouselContent>
+                  {photos.map((photo, index) => (
+                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                      <div className="p-2">
+                        <Card
+                          className="group hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden border-2 hover:border-primary/30 active:scale-95 sm:active:scale-100 touch-manipulation"
+                          onClick={() => openPhoto(index)}
+                        >
+                          <div className="relative aspect-[3/4] overflow-hidden bg-slate-100">
+                            <img
+                              src={photo.src}
+                              alt={photo.alt}
+                              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                              loading="lazy"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.src = '/founder.JPG';
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <p className="text-white text-xs sm:text-sm font-medium">Click to view</p>
+                            </div>
+                          </div>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="hidden sm:flex -left-4 sm:-left-8 lg:-left-12" />
+                <CarouselNext className="hidden sm:flex -right-4 sm:-right-8 lg:-right-12" />
+              </Carousel>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Photo Modal */}
+      {selectedPhoto !== null && (
+        <Dialog open={selectedPhoto !== null} onOpenChange={closePhoto}>
+          <DialogContent className="max-w-4xl w-[95vw] p-0 bg-black/95 border-none">
+            <Carousel
+              opts={{
+                startIndex: selectedPhoto,
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <div className="relative">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute top-2 right-2 z-50 text-white hover:bg-white/20"
+                  onClick={closePhoto}
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+                <CarouselContent className="-ml-0">
+                  {photos.map((photo, index) => (
+                    <CarouselItem key={index} className="pl-0">
+                      <div className="relative aspect-[3/4] sm:aspect-auto sm:max-h-[85vh] overflow-hidden">
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          className="w-full h-full object-contain"
+                          loading="eager"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 z-50 text-white border-white/20 hover:bg-white/20 hover:text-white bg-black/30" />
+                <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 z-50 text-white border-white/20 hover:bg-white/20 hover:text-white bg-black/30" />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 z-40">
+                  <p className="text-white text-sm text-center">
+                    {selectedPhoto !== null ? selectedPhoto + 1 : 1} / {photos.length}
+                  </p>
+                </div>
+              </div>
+            </Carousel>
+          </DialogContent>
+        </Dialog>
+      )}
     </section>
   );
 };

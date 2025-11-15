@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Shell from './components/Shell';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
 import About from './components/About';
-import Services from './components/Services';
-import AIHealthAssistant from './components/AIHealthAssistant';
-import ReachOut from './components/ReachOut';
-import FloatingAIButton from './components/FloatingAIButton';
+
+// Lazy load below-the-fold components
+const Services = lazy(() => import('./components/Services'));
+const AIHealthAssistant = lazy(() => import('./components/AIHealthAssistant'));
+const TechniqueVideos = lazy(() => import('./components/TechniqueVideos'));
+const ReachOut = lazy(() => import('./components/ReachOut'));
+const FloatingAIButton = lazy(() => import('./components/FloatingAIButton'));
 
 /**
  * KunjCare — Psychotherapy Web App (React + Tailwind)
@@ -20,9 +23,18 @@ const App: React.FC = () => {
       <NavBar />
       <Hero />
       <About />
-      <Services />
-      <AIHealthAssistant />
-      <ReachOut />
+      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
+        <Services />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
+        <AIHealthAssistant />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
+        <TechniqueVideos />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
+        <ReachOut />
+      </Suspense>
       <footer className="py-6 sm:py-8 lg:py-10 text-center border-t bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs sm:text-sm text-muted-foreground px-2">
@@ -98,7 +110,9 @@ const App: React.FC = () => {
           </div>
         </div>
       </footer>
-      <FloatingAIButton />
+      <Suspense fallback={null}>
+        <FloatingAIButton />
+      </Suspense>
     </Shell>
   );
 };

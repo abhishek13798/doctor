@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MessageCircle, Phone, Copy, Check, ExternalLink, Linkedin } from 'lucide-react';
+import { Mail, MessageCircle, Phone, Copy, Check, ExternalLink, Linkedin, AlertTriangle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import {
@@ -138,6 +138,84 @@ const ReachOut: React.FC = () => {
               >
                 View Profile
               </Button>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Emergency Helplines */}
+        <div className="mb-8">
+          <Card className="bg-gradient-to-br from-primary/10 via-[var(--kunj-java)]/10 to-primary/5 border-2 border-primary/30 shadow-xl overflow-hidden relative">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--kunj-java)]/20 rounded-full blur-2xl -mr-16 -mt-16"></div>
+            <CardContent className="pt-6 pb-6 relative">
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-primary to-[var(--kunj-java)] mb-4 shadow-lg">
+                  <AlertTriangle className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">
+                  Emergency Mental Health Helplines
+                </h3>
+                <p className="text-sm text-slate-600 max-w-2xl mx-auto">
+                  If you're experiencing a mental health crisis or emergency, please contact these helplines immediately:
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <Card className="bg-white/80 backdrop-blur-sm border-2 border-primary/20 hover:border-primary/40 hover:shadow-md transition-all duration-300 group">
+                  <CardContent className="p-5">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-primary/10 mb-3">
+                          <div className="w-2 h-2 rounded-full bg-[var(--kunj-java)] animate-pulse"></div>
+                          <p className="text-xs font-semibold text-primary uppercase tracking-wide">24/7 Crisis Helpline</p>
+                        </div>
+                        <a 
+                          href="tel:8448848445" 
+                          className="text-2xl font-bold bg-gradient-to-r from-primary to-[var(--kunj-java)] bg-clip-text text-transparent hover:opacity-80 transition-opacity block mb-2"
+                        >
+                          8448-8448-45
+                        </a>
+                        <p className="text-xs text-slate-500">Available round the clock</p>
+                      </div>
+                      <Button
+                        size="sm"
+                        onClick={() => {
+                          window.location.href = 'tel:8448848445';
+                        }}
+                        className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform"
+                      >
+                        <Phone className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-white/80 backdrop-blur-sm border-2 border-primary/20 hover:border-primary/40 hover:shadow-md transition-all duration-300 group">
+                  <CardContent className="p-5">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="inline-flex items-center gap-2 px-2 py-1 rounded-full bg-primary/10 mb-3">
+                          <div className="w-2 h-2 rounded-full bg-[var(--kunj-java)] animate-pulse"></div>
+                          <p className="text-xs font-semibold text-primary uppercase tracking-wide">Emergency Support</p>
+                        </div>
+                        <a 
+                          href="tel:08046110007" 
+                          className="text-2xl font-bold bg-gradient-to-r from-primary to-[var(--kunj-java)] bg-clip-text text-transparent hover:opacity-80 transition-opacity block mb-2"
+                        >
+                          080-46110007
+                        </a>
+                        <p className="text-xs text-slate-500">Immediate assistance</p>
+                      </div>
+                      <Button
+                        size="sm"
+                        onClick={() => {
+                          window.location.href = 'tel:08046110007';
+                        }}
+                        className="bg-gradient-to-r from-primary to-[var(--kunj-java)] hover:shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform"
+                      >
+                        <Phone className="h-4 w-4" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </CardContent>
           </Card>
         </div>
