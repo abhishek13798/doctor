@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from './ui/carousel';
-import { Heart, BookOpen, Leaf, X, ChevronRight } from 'lucide-react';
+import { Heart, BookOpen, Leaf, X, ChevronRight, GraduationCap, Briefcase, Award, Users, Building2 } from 'lucide-react';
 import { Button } from './ui/button';
 
 const About: React.FC = () => {
@@ -53,17 +53,101 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-8 sm:space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-start">
-            <div className="text-center lg:text-left space-y-4 sm:space-y-6 order-2 lg:order-1">
+            <div className="text-center lg:text-left space-y-6 sm:space-y-8 order-2 lg:order-1">
               <div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-2 sm:px-0">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2 sm:px-0">
                   About{' '}
-                  <span className="bg-gradient-to-r from-[var(--kunj-eb)] to-[var(--kunj-java)] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[var(--kunj-eb)] via-[var(--kunj-java)] to-[var(--kunj-pink)] bg-clip-text text-transparent">
                     Ms. Rimjhim
                   </span>
                 </h2>
-                <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto lg:mx-0 px-2 sm:px-0">
-                  Ms. Rimjhim is a <strong>Licensed Clinical Psychologist (RCI)</strong> with extensive experience serving both the Indian Army and civilian populations. She integrates evidence‑based therapies like <strong>CBT, DBT, and ACT</strong> in her practice to help individuals enhance emotional regulation, manage stress, and build resilience.
-                </p>
+                <div className="space-y-4 text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto lg:mx-0 px-2 sm:px-0">
+                  <p>
+                    Ms. Rimjhim is a <strong>Licensed Clinical Psychologist</strong> certified by <strong>RCI (Rehabilitation Council of India)</strong>, specializing in <strong>personality disorders</strong> and <strong>family/relationship conflicts</strong>. With over <strong>2000 cases handled</strong>, she brings extensive experience in conducting both <strong>psychometric assessments</strong> and <strong>therapy</strong>.
+                  </p>
+                  <p>
+                    Her work spans from <strong>government medical colleges</strong> to <strong>Tihar prisons</strong>, where she has honed expertise in <strong>behavioral management</strong>, particularly in <strong>stress reduction</strong>. She has provided <strong>psychological first aid at Tihar</strong> and worked as a <strong>trainee at GMCH Chandigarh</strong>.
+                  </p>
+                  <p>
+                    Currently, Ms. Rimjhim runs her own private practice, <strong>Kunj Care</strong>, where she provides psychotherapy and assessments. She also collaborates with various organizations to offer therapy services and <strong>currently works at 166 MH</strong>.
+                  </p>
+                </div>
+              </div>
+
+              {/* Qualifications and Experience Grid */}
+              <div className="mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+                {/* Qualifications Section */}
+                <div>
+                  <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[var(--kunj-eb)] to-[var(--kunj-java)] flex items-center justify-center flex-shrink-0">
+                      <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 leading-tight">Education & Qualifications</h3>
+                  </div>
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm sm:text-base text-slate-800">MPhil in Clinical Psychology</p>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">GMCH, Chandigarh</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm sm:text-base text-slate-800">Master's Degree</p>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Jamia Millia Islamia, Delhi</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm sm:text-base text-slate-800">Bachelor's Degree</p>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Amity University, Jaipur</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm sm:text-base text-slate-800">RCI Certified</p>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Rehabilitation Council of India</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Experience & Specializations */}
+                <div>
+                  <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[var(--kunj-java)] to-[var(--kunj-pink)] flex items-center justify-center flex-shrink-0">
+                      <Briefcase className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 leading-tight">Experience & Specializations</h3>
+                  </div>
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Users className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm sm:text-base text-slate-800">2000+ Cases Handled</p>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Extensive clinical experience</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Building2 className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm sm:text-base text-slate-800">Specializations</p>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">Personality Disorders • Family/Relationship Conflicts • Stress Reduction • Behavioral Management</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 sm:gap-3">
+                      <Building2 className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-sm sm:text-base text-slate-800">Current Practice</p>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Kunj Care (Private Practice) • 166 MH</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
