@@ -46,7 +46,7 @@ const Testimonials: React.FC = () => {
     let scrollPosition = 0;
     // Smooth scroll velocity - adjusts based on screen size for optimal viewing
     const getScrollSpeed = () => {
-      if (window.innerWidth < 640) return 0.3; // Mobile: slower
+      if (window.innerWidth < 640) return 0.9; // Mobile: faster
       if (window.innerWidth < 1024) return 0.5; // Tablet: medium
       return 0.7; // Desktop: faster
     };
