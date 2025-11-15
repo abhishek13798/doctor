@@ -7,7 +7,7 @@ const NavBar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('Home');
 
-  const navItems = ["Home", "About", "Services", "AI Assistant", "Techniques", "Contact"];
+  const navItems = ["Home", "About", "Testimonials", "Services", "AI Assistant", "Techniques", "Contact"];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: string) => {
     e.preventDefault();
@@ -21,6 +21,8 @@ const NavBar: React.FC = () => {
       sectionId = 'home';
     } else if (itemLower === 'about') {
       sectionId = 'about';
+    } else if (itemLower === 'testimonials') {
+      sectionId = 'testimonials';
     } else if (itemLower === 'services') {
       sectionId = 'services';
     } else if (itemLower === 'ai assistant') {

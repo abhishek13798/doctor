@@ -6,6 +6,7 @@ import About from './components/About';
 
 // Lazy load below-the-fold components
 const Services = lazy(() => import('./components/Services'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
 const AIHealthAssistant = lazy(() => import('./components/AIHealthAssistant'));
 const TechniqueVideos = lazy(() => import('./components/TechniqueVideos'));
 const ReachOut = lazy(() => import('./components/ReachOut'));
@@ -23,6 +24,9 @@ const App: React.FC = () => {
       <NavBar />
       <Hero />
       <About />
+      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
+        <Testimonials />
+      </Suspense>
       <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
         <Services />
       </Suspense>
@@ -72,6 +76,17 @@ const App: React.FC = () => {
               className="hover:text-primary transition-colors cursor-pointer"
             >
               About
+            </a>
+            <a 
+              href="#testimonials" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('testimonials');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hover:text-primary transition-colors cursor-pointer"
+            >
+              Testimonials
             </a>
             <a 
               href="#services" 
