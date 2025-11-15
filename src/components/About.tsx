@@ -53,7 +53,7 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-8 sm:space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-start">
-            <div className="text-center lg:text-left space-y-6 sm:space-y-8 order-2 lg:order-1">
+            <div className="text-left space-y-6 sm:space-y-8 order-2 lg:order-1">
               <div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-2 sm:px-0">
                   About{' '}
@@ -74,76 +74,159 @@ const About: React.FC = () => {
                 </div>
               </div>
 
-              {/* Qualifications and Experience Grid */}
-              <div className="mt-6 sm:mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
-                {/* Qualifications Section */}
-                <div>
-                  <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[var(--kunj-eb)] to-[var(--kunj-java)] flex items-center justify-center flex-shrink-0">
-                      <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
-                    </div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 leading-tight">Education & Qualifications</h3>
-                  </div>
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-sm sm:text-base text-slate-800">MPhil in Clinical Psychology</p>
-                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">GMCH, Chandigarh</p>
+              {/* Qualifications and Experience Grid - Card design for mobile */}
+              <div className="mt-6 sm:mt-8 md:mt-10">
+                {/* Mobile: Card Design */}
+                <div className="md:hidden space-y-4">
+                  {/* Education Card */}
+                  <Card className="border-2 border-slate-200 shadow-md">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--kunj-eb)] to-[var(--kunj-java)] flex items-center justify-center flex-shrink-0">
+                          <GraduationCap className="h-5 w-5 text-white" />
+                        </div>
+                        <CardTitle className="text-lg font-bold text-slate-800">Education & Qualifications</CardTitle>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-sm sm:text-base text-slate-800">Master's Degree</p>
-                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Jamia Millia Islamia, Delhi</p>
+                    </CardHeader>
+                    <CardContent className="pt-0 space-y-3">
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-sm text-slate-800">MPhil in Clinical Psychology</p>
+                          <p className="text-xs text-slate-600 mt-0.5">GMCH, Chandigarh</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-sm sm:text-base text-slate-800">Bachelor's Degree</p>
-                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Amity University, Jaipur</p>
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-sm text-slate-800">Master's Degree</p>
+                          <p className="text-xs text-slate-600 mt-0.5">Jamia Millia Islamia, Delhi</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <Award className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-sm sm:text-base text-slate-800">RCI Certified</p>
-                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Rehabilitation Council of India</p>
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-sm text-slate-800">Bachelor's Degree</p>
+                          <p className="text-xs text-slate-600 mt-0.5">Amity University, Jaipur</p>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-sm text-slate-800">RCI Certified</p>
+                          <p className="text-xs text-slate-600 mt-0.5">Rehabilitation Council of India</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Experience Card */}
+                  <Card className="border-2 border-slate-200 shadow-md">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--kunj-java)] to-[var(--kunj-pink)] flex items-center justify-center flex-shrink-0">
+                          <Briefcase className="h-5 w-5 text-white" />
+                        </div>
+                        <CardTitle className="text-lg font-bold text-slate-800">Experience & Specializations</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-0 space-y-3">
+                      <div className="flex items-start gap-3">
+                        <Users className="h-5 w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-sm text-slate-800">2000+ Cases Handled</p>
+                          <p className="text-xs text-slate-600 mt-0.5">Extensive clinical experience</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Building2 className="h-5 w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-sm text-slate-800">Specializations</p>
+                          <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">Personality Disorders • Family/Relationship Conflicts • Stress Reduction • Behavioral Management</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Building2 className="h-5 w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-sm text-slate-800">Current Practice</p>
+                          <p className="text-xs text-slate-600 mt-0.5">Kunj Care (Private Practice) • 166 MH</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
 
-                {/* Experience & Specializations */}
-                <div>
-                  <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
-                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[var(--kunj-java)] to-[var(--kunj-pink)] flex items-center justify-center flex-shrink-0">
-                      <Briefcase className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                {/* Desktop: Original Grid Design */}
+                <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-10">
+                  {/* Qualifications Section */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--kunj-eb)] to-[var(--kunj-java)] flex items-center justify-center flex-shrink-0">
+                        <GraduationCap className="h-5 w-5 text-white" />
+                      </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Education & Qualifications</h3>
                     </div>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-800 leading-tight">Experience & Specializations</h3>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-base text-slate-800">MPhil in Clinical Psychology</p>
+                          <p className="text-sm text-slate-600 mt-0.5">GMCH, Chandigarh</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-base text-slate-800">Master's Degree</p>
+                          <p className="text-sm text-slate-600 mt-0.5">Jamia Millia Islamia, Delhi</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-base text-slate-800">Bachelor's Degree</p>
+                          <p className="text-sm text-slate-600 mt-0.5">Amity University, Jaipur</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Award className="h-5 w-5 text-[var(--kunj-java)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-base text-slate-800">RCI Certified</p>
+                          <p className="text-sm text-slate-600 mt-0.5">Rehabilitation Council of India</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="space-y-3 sm:space-y-4">
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <Users className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-sm sm:text-base text-slate-800">2000+ Cases Handled</p>
-                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Extensive clinical experience</p>
+
+                  {/* Experience & Specializations */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-5">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--kunj-java)] to-[var(--kunj-pink)] flex items-center justify-center flex-shrink-0">
+                        <Briefcase className="h-5 w-5 text-white" />
                       </div>
+                      <h3 className="text-xl md:text-2xl font-bold text-slate-800 leading-tight">Experience & Specializations</h3>
                     </div>
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <Building2 className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-sm sm:text-base text-slate-800">Specializations</p>
-                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">Personality Disorders • Family/Relationship Conflicts • Stress Reduction • Behavioral Management</p>
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <Users className="h-5 w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-base text-slate-800">2000+ Cases Handled</p>
+                          <p className="text-sm text-slate-600 mt-0.5">Extensive clinical experience</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <Building2 className="h-4 w-4 sm:h-5 sm:w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-sm sm:text-base text-slate-800">Current Practice</p>
-                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5">Kunj Care (Private Practice) • 166 MH</p>
+                      <div className="flex items-start gap-3">
+                        <Building2 className="h-5 w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-base text-slate-800">Specializations</p>
+                          <p className="text-sm text-slate-600 mt-0.5 leading-relaxed">Personality Disorders • Family/Relationship Conflicts • Stress Reduction • Behavioral Management</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Building2 className="h-5 w-5 text-[var(--kunj-pink)] mt-0.5 flex-shrink-0" />
+                        <div className="flex-1 min-w-0">
+                          <p className="font-semibold text-base text-slate-800">Current Practice</p>
+                          <p className="text-sm text-slate-600 mt-0.5">Kunj Care (Private Practice) • 166 MH</p>
+                        </div>
                       </div>
                     </div>
                   </div>
