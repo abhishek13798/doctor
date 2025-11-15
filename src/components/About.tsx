@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from './ui/carousel';
-import { Heart, BookOpen, Leaf, X } from 'lucide-react';
+import { Heart, BookOpen, Leaf, X, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
 
 const About: React.FC = () => {
@@ -134,6 +134,14 @@ const About: React.FC = () => {
               <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
                 Get to know Ms. Rimjhim through these professional photographs
               </p>
+              {/* Mobile Swipe Indicator */}
+              <div className="flex items-center justify-center gap-2 mt-4 sm:hidden">
+                <span className="text-xs text-muted-foreground flex items-center gap-1 animate-pulse">
+                  <ChevronRight className="h-4 w-4 text-[var(--kunj-java)]" />
+                  Swipe left to view more
+                  <ChevronRight className="h-4 w-4 text-[var(--kunj-java)]" />
+                </span>
+              </div>
             </div>
             <div className="px-4 sm:px-8 md:px-12 lg:px-16">
               <Carousel
