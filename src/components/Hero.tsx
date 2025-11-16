@@ -10,7 +10,7 @@ const Hero: React.FC = () => (
     <div className="absolute bottom-20 left-10 w-40 h-40 sm:w-64 sm:h-64 bg-[var(--kunj-eb)]/10 rounded-full blur-2xl"></div>
     
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-      <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-end">
         <div className="text-center lg:text-left space-y-4 sm:space-y-6">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full bg-[var(--kunj-light)] border border-[var(--kunj-eb)]/20 text-xs sm:text-sm font-medium text-[var(--kunj-eb)]">
             <Sparkles className="h-3 w-3 sm:h-4 sm:w-4" />
@@ -28,7 +28,7 @@ const Hero: React.FC = () => (
             Compassionate support for your mental health journey with <strong>Ms. Rimjhim</strong> — Licensed Clinical Psychologist (RCI), trained at Government Medical College & Hospital, Chandigarh. Specialized in emotional regulation, stress management, suicide prevention, and personality disorders.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center lg:items-start lg:justify-start pt-2 sm:pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center lg:items-start lg:justify-start pt-2 sm:pt-4 pb-0 lg:pb-8">
             <Button
               asChild
               size="lg"
