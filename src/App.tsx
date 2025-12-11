@@ -122,6 +122,7 @@ const App: React.FC = () => {
               Contact
             </a>
             <a href="https://www.kunjcare.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Website</a>
+            <a href="https://www.instagram.com/kunjcare?igsh=c3Q0Y3h4c2d0aWZo&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors cursor-pointer">Instagram</a>
           </div>
         </div>
       </footer>
