@@ -6,6 +6,7 @@ interface Testimonial {
   id: number;
   text: string;
   rating: number;
+  name?: string;
 }
 
 const Testimonials: React.FC = () => {
@@ -15,21 +16,51 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
+      text: "Working with you has been a uniquely comforting experience. You listen with genuine care—whether it's something deeply painful or something that feels trivial. Nothing ever feels judged, dismissed, or minimized. Your perspective is always positive, your validation is grounding, and your presence feels as reassuring as talking to a friend who truly cares. You've created a space where I can be completely myself, and that has made an immense difference in my life.",
+      rating: 5,
+      name: "Soham"
+    },
+    {
+      id: 2,
+      text: "You have been an incredibly supportive and grounding presence in my journey. Your calm, warm energy makes it easy to open up, and your guidance has helped me build more compassion toward myself. I truly believe you are an intelligent and deeply skilled therapist, and I'm grateful for the clarity and healing I've experienced through our sessions.",
+      rating: 5,
+      name: "Sanya"
+    },
+    {
+      id: 3,
+      text: "My experience with you has been truly transformative. When I started therapy, my anxiety and panic attacks felt overwhelming, and I didn't know how to cope anymore. You provided a space where I felt heard, understood, and safe. Your warmth, patience, and compassionate guidance helped me learn how to calm my mind and reconnect with myself. I had moments where I doubted recovery, but your reassurance and consistency changed that. Today, I feel more in control, more confident, and more aligned with myself. I'm deeply grateful for every session, gentle reminder, and the unwavering support you offered.",
+      rating: 5,
+      name: "Arshika Bhagat"
+    },
+    {
+      id: 4,
+      text: "Working with you has been a truly comforting experience. I always felt safe, understood, and genuinely heard in every session. Your guidance has helped me gain clarity and perspective, and I deeply appreciate the effort you put into understanding my situation. While I personally prefer a little more structure in the sessions, and sometimes your expressions feel slightly evaluative, it only reminds me that you are human and present in the moment. Your acknowledgments occasionally feel textbook-like, but your intent always comes through. Despite a few areas for improvement, I wouldn't want to go through this journey with anyone else. I'm grateful for the growth we've achieved together.",
+      rating: 5,
+      name: "Shiksha"
+    },
+    {
+      id: 5,
+      text: "Talking to you has been incredibly grounding and insightful. Your support has helped me understand myself better and feel more emotionally stable. I am still working through many things, but your patience and understanding make it much easier to navigate my thoughts and feelings. Thank you for being so calm, composed, and supportive throughout this journey.",
+      rating: 5,
+      name: "Neha Sharma"
+    },
+    {
+      id: 6,
       text: "You have been a great therapist to me, and helped me understand compassion for myself, your presence is calming and v warm. I also believe that you are an excellent and intelligent therapist well versed in your field.",
       rating: 5
     },
     {
-      id: 2,
+      id: 7,
       text: "Great and helpful",
       rating: 5
     },
     {
-      id: 3,
+      id: 8,
       text: "Rimjhim is very understanding, supportive and a great listener. I can talk to her about really terrible things, about things I can never speak in front of anyone else, or even the most mundane and trivial sounding stuff, and it never becomes wierd, or trivialised. She has a very positive outlook on situations, and a very validating view of feelings.",
       rating: 5
     },
     {
-      id: 4,
+      id: 9,
       text: "Talking to Rimjhim is like talking to a friend who really cares about you and will help you with whatever you're facing.",
       rating: 5
     }
@@ -46,7 +77,7 @@ const Testimonials: React.FC = () => {
     let scrollPosition = 0;
     // Smooth scroll velocity - adjusts based on screen size for optimal viewing
     const getScrollSpeed = () => {
-      if (window.innerWidth < 640) return 1.9; // Mobile: faster
+      if (window.innerWidth < 640) return 1.5; // Mobile: faster
       if (window.innerWidth < 1024) return 0.5; // Tablet: medium
       return 0.7; // Desktop: faster
     };
@@ -177,8 +208,8 @@ const Testimonials: React.FC = () => {
                           />
                         ))}
                       </div>
-                      <div className="text-xs sm:text-sm text-slate-400 font-medium">
-                        Verified Client
+                      <div className="text-xs sm:text-sm text-slate-500 font-medium">
+                        {testimonial.name || "Verified Client"}
                       </div>
                     </div>
                   </CardContent>
