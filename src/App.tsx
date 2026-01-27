@@ -9,6 +9,8 @@ const Services = lazy(() => import('./components/Services'));
 const Testimonials = lazy(() => import('./components/Testimonials'));
 const AIHealthAssistant = lazy(() => import('./components/AIHealthAssistant'));
 const TechniqueVideos = lazy(() => import('./components/TechniqueVideos'));
+const Blog = lazy(() => import('./components/Blog'));
+const FAQ = lazy(() => import('./components/FAQ'));
 const ReachOut = lazy(() => import('./components/ReachOut'));
 const FloatingAIButton = lazy(() => import('./components/FloatingAIButton'));
 
@@ -35,6 +37,12 @@ const App: React.FC = () => {
       </Suspense>
       <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
         <TechniqueVideos />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
+        <Blog />
+      </Suspense>
+      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
+        <FAQ />
       </Suspense>
       <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="animate-pulse text-muted-foreground">Loading...</div></div>}>
         <ReachOut />
@@ -109,6 +117,28 @@ const App: React.FC = () => {
               className="hover:text-primary transition-colors cursor-pointer"
             >
               AI Assistant
+            </a>
+            <a 
+              href="#blog" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('blog');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hover:text-primary transition-colors cursor-pointer"
+            >
+              Blog
+            </a>
+            <a 
+              href="#faq" 
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById('faq');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="hover:text-primary transition-colors cursor-pointer"
+            >
+              FAQ
             </a>
             <a 
               href="#reachout" 
